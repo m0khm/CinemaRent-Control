@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CinemaRent Control - Документация</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #e9f2ff;
+            --header-bg: #004085;
+            --header-text: #ffffff;
+            --accent: #007bff;
+            --text: #212529;
+            --card-bg: #ffffff;
+        }
+        *, html, body { box-sizing: border-box; }
+        html, body { height: 100%; }
+        body {
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+        }
+        header {
+            background-color: var(--header-bg);
+            color: var(--header-text);
+            position: sticky;
+            top: 0;
+            padding: 1rem 2rem;
+            z-index: 1000;
+        }
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+            margin: 0;
+            padding: 0;
+        }
+        nav a {
+            color: var(--header-text);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+        nav a:hover,
+        nav a.active {
+            background-color: var(--accent);
+        }
+        main {
+            flex: 1;
+            max-width: 1200px;
+            margin: 2rem auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            padding: 0 1rem;
+        }
+        @media (min-width: 768px) {
+            main {
+                grid-template-columns: 1fr 2fr;
+            }
+        }
+        main > section {
+            background-color: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            display: none;
+            grid-column: 1 / -1;
+        }
+        #welcome {
+            display: block;
+            grid-column: 1 / -1;
+            text-align: center;
+        }
+        h1, h2 {
+            margin: 0;
+        }
+        h1 {
+            font-size: 2rem;
+        }
+        h2 {
+            font-size: 1.75rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        h3 {
+            font-size: 1.25rem;
+            margin-top: 1rem;
+            color: var(--header-bg);
+        }
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        .data-table th,
+        .data-table td {
+            border: 1px solid #ddd;
+            padding: 0.75rem;
+            text-align: left;
+        }
+        .data-table th {
+            background-color: var(--accent);
+            color: var(--header-text);
+        }
+        .data-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .issue {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-left: 4px solid var(--accent);
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem 0;
+            background-color: var(--header-bg);
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+        address a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        ol,
+        ul {
+            padding-left: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>CinemaRent Control v1.0</h1>
+            <nav>
+                <ul>
+                    <li><a data-target="overview">Обзор</a></li>
+                    <li><a data-target="installation">Установка</a></li>
+                    <li><a data-target="usage">Руководство</a></li>
+                    <li><a data-target="troubleshooting">Проблемы</a></li>
+                    <li><a data-target="faq">FAQ</a></li>
+                    <li><a data-target="roadmap">Планы</a></li>
+                    <li><a data-target="contact">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section id="welcome">
+            <h2>Добро пожаловать в CinemaRent Control</h2>
+            <p>Выберите раздел меню выше, чтобы начать работу с документацией.</p>
+        </section>
+        <section id="overview">
+            <h2>Обзор системы</h2>
+            <p><strong>CinemaRent Control</strong> — это программа для управления коллекцией фильмов в видеопрокате.</p>
+            <ul>
+                <li>Добавление, редактирование и удаление фильмов</li>
+                <li>Поиск по названию, году выпуска или типу носителя</li>
+                <li>Просмотр полной базы фильмов с сортировкой</li>
+                <li>Сохранение и загрузка данных из файла</li>
+            </ul>
+        </section>
+        <section id="installation">
+            <h2>Установка</h2>
+            <ol>
+                <li>Скачайте архив программы с официального сайта.</li>
+                <li>Распакуйте содержимое в отдельную папку.</li>
+                <li>Убедитесь, что на компьютере установлены:
+                    <ul>
+                        <li>Windows 7/8/10/11</li>
+                        <li>Microsoft Visual C++ Redistributable (последней версии)</li>
+                    </ul>
+                </li>
+            </ol>
+        </section>
+        <section id="usage">
+            <h2>Руководство пользователя</h2>
+            <article>
+                <h3>Добавление нового фильма</h3>
+                <p>Чтобы добавить фильм в базу данных:</p>
+                <ol>
+                    <li>Выберите пункт меню "Добавить фильм".</li>
+                    <li>Введите название, год выпуска, тип носителя (DVD/Blu-Ray/VHS), наличие в прокате и стоимость.</li>
+                    <li>После сохранения фильм появится в общем каталоге.</li>
+                </ol>
+            </article>
+            <article>
+                <h3>Поиск фильма</h3>
+                <p>Для быстрого поиска фильма по ID:</p>
+                <ul>
+                    <li>Выберите пункт "Поиск фильма".</li>
+                    <li>Введите уникальный идентификатор фильма.</li>
+                </ul>
+            </article>
+            <article>
+                <h3>Сохранение и загрузка данных</h3>
+                <p>Для сохранения всех изменений выберите пункт "Сохранить изменения".</p>
+                <p>Фильмы сохраняются в файл <strong>films.dat</strong> в текстовом формате с разделителем "|".</p>
+            </article>
+        </section>
+        <section id="troubleshooting">
+            <h2>Решение проблем</h2>
+            <div class="issue">
+                <h3>Файл данных не загружается</h3>
+                <p><strong>Решение:</strong> Проверьте наличие файла <em>films.dat</em> в папке с программой или создайте новый пустой файл.</p>
+            </div>
+            <div class="issue">
+                <h3>Ошибка запуска программы</h3>
+                <p><strong>Решение:</strong> Убедитесь, что установлены все необходимые библиотеки Microsoft Visual C++.</p>
+            </div>
+        </section>
+        <section id="faq">
+            <h2>Часто задаваемые вопросы (FAQ)</h2>
+            <h3>Можно ли добавить больше типов носителей?</h3>
+            <p>В текущей версии поддерживаются только DVD, Blu-Ray и VHS. Расширение типов возможно в будущих обновлениях.</p>
+            <h3>Что происходит при удалении фильма?</h3>
+            <p>Фильм безвозвратно удаляется из базы данных. Перед удалением рекомендуется сохранять резервную копию.</p>
+            <h3>Можно ли использовать программу без интернета?</h3>
+            <p>Да. CinemaRent Control полностью автономна и не требует подключения к интернету.</p>
+        </section>
+        <section id="roadmap">
+            <h2>Планы развития проекта</h2>
+            <ul>
+                <li>Добавление авторизации пользователей</li>
+                <li>Ведение истории проката фильмов</li>
+                <li>Поддержка дополнительных форматов файлов: CSV, JSON</li>
+                <li>Версия для macOS и Linux</li>
+            </ul>
+        </section>
+        <section id="contact">
+            <h2>Контакты</h2>
+            <address>Email: <a href="mailto:support@cinemarentcontrol.ru">support@cinemarentcontrol.ru</a></address>
+            <address>Телефон: <a href="tel:+79261891576">+7 (926) 189-15-76</a></address>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 CinemaRent Control. Все права защищены.</p>
+    </footer>
+    <script>
+        // Навигация по разделам
+        const links = document.querySelectorAll('nav a');
+        const sections = document.querySelectorAll('main > section');
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                const targetId = link.dataset.target;
+                sections.forEach(sec => sec.style.display = 'none');
+                const visible = document.getElementById(targetId);
+                if (visible) visible.style.display = 'block';
+                links.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
